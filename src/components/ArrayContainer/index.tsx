@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useState } from "react";
+import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
 import "./ArrayContainer.css";
 
 import ArrayItem from "../ArrayItem";
@@ -32,11 +32,18 @@ const ArrayContainer: FC<Props> = ({ array, selected, speed }) => {
     updateWidth();
   }, [width, updateWidth]);
 
+  const textSize = useMemo(() => {
+    const size = Math.min(sizes.width * 0.75, 35);
+    console.log(size);
+    return size >= 8 ? size : 0;
+  }, [sizes.width]);
+
   return (
     <div className="array-container">
       {array.map((value, index) => (
         <ArrayItem
           speed={speed}
+          textSize={textSize}
           height={(100 / array.length) * value}
           width={sizes.width}
           margin={sizes.margin}

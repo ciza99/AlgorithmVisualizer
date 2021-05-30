@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from "react";
+import React, { FC } from "react";
 import "./ArrayItem.css";
 
 interface Props {
@@ -8,6 +8,7 @@ interface Props {
   width: number;
   margin: number;
   speed: number;
+  textSize: number;
 }
 
 const ArrayItem: FC<Props> = ({
@@ -17,12 +18,9 @@ const ArrayItem: FC<Props> = ({
   width,
   margin,
   speed,
+  textSize,
 }) => {
   const className = isSelected ? "array-item--selected" : "";
-  const textSize = useMemo(() => {
-    const size = Math.min(width * 0.75, 35);
-    return size >= 8 ? size : 0;
-  }, [width]);
 
   return (
     <div

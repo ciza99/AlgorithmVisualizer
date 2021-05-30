@@ -21,19 +21,12 @@
 }
 
 .array-item__text {
-  visibility: hidden;
   position: absolute;
   color: white;
   margin-top: 1rem;
   font-weight: 700;
   bottom: -1.5rem;
   font-size: 1rem;
-}
-
-@media only screen and (min-width: 600px) {
-  .array-item__text {
-    visibility: visible;
-  }
 }
 
 @media only screen and (min-width: 1000px) {
