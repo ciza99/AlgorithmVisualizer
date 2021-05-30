@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import "./App.css";
 
 /** COMPONENTS */
@@ -37,6 +37,7 @@ const App: FC = () => {
   const [selected, setSelected] = useState<number[]>([]);
   const [speed, setSpeed] = useState(50);
   const [algorithm, setAlgorithm] = useState<Algorithm>("bubble");
+  const nextIterationTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     setArray(randomArray(arraySize));
@@ -70,7 +71,10 @@ const App: FC = () => {
       });
     }
 
-    setTimeout(() => loop(animations, index + 1), speed);
+    nextIterationTimeout.current = setTimeout(
+      () => loop(animations, index + 1),
+      speed
+    );
   };
 
   const handleStart = () => {
@@ -86,6 +90,14 @@ const App: FC = () => {
         ? mergeSort(array)
         : quickSort(array);
     loop(animations, 0);
+  };
+
+  const handleStop = () => {
+    if (nextIterationTimeout.current) {
+      clearTimeout(nextIterationTimeout.current);
+      setIsRunning(false);
+      setSelected([]);
+    }
   };
 
   useEffect(() => {}, [isRunning]);
@@ -111,6 +123,7 @@ const App: FC = () => {
       <Header
         isRunning={isRunning}
         handleStart={handleStart}
+        handleStop={handleStop}
         algorithm={algorithm}
         setAlgorithm={setAlgorithm}
         handleSizeChange={handleSizeChange}

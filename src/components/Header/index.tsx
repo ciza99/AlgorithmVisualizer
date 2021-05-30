@@ -13,6 +13,7 @@ import CloseIcon from "@material-ui/icons/Close";
 interface Props {
   isRunning: boolean;
   handleStart: React.MouseEventHandler<HTMLButtonElement>;
+  handleStop: React.MouseEventHandler<HTMLButtonElement>;
   algorithm: Algorithm;
   setAlgorithm: React.Dispatch<React.SetStateAction<Algorithm>>;
   handleSizeChange: SliderChange;
@@ -22,6 +23,7 @@ interface Props {
 const Header: FC<Props> = ({
   isRunning,
   handleStart,
+  handleStop,
   algorithm,
   setAlgorithm,
   handleSizeChange,
@@ -75,11 +77,10 @@ const Header: FC<Props> = ({
 
         <Button
           variant="outlined"
-          onClick={handleStart}
-          disabled={isRunning}
+          onClick={isRunning ? handleStop : handleStart}
           className="header__start-button"
         >
-          Start
+          {isRunning ? "Stop" : "Start"}
         </Button>
       </form>
       <IconButton onClick={openMenu} className="header__menu-button">
