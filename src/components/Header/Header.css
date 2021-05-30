@@ -51,6 +51,16 @@
   row-gap: 1rem;
   padding: 2rem;
   z-index: 3;
+  animation: fadeIn 250ms ease;
+}
+
+@keyframes fadeIn {
+  from {
+    filter: opacity(0%);
+  }
+  to {
+    opacity: opacity(100%);
+  }
 }
 
 .header__menu-heading {
