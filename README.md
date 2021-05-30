@@ -2,7 +2,7 @@
 
 Simple app that was created as a school project using React and TypeScript.
 
-You can view the app clicking on this [link](https://github.com/facebook/create-react-app).
+You can view the app clicking on this [link](http://ciza99.github.io/AlgorithmVisualizer).
 
 ### Implemented algorithms:
 
