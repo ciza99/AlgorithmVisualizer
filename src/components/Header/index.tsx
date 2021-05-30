@@ -4,7 +4,7 @@ import { Algorithm } from "../App/App";
 
 import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
-import { Divider, IconButton, MenuItem } from "@material-ui/core";
+import { IconButton, MenuItem } from "@material-ui/core";
 import Sliders, { SliderChange } from "../Sliders";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 import MenuIcon from "@material-ui/icons/Menu";
