@@ -1,4 +1,4 @@
-import { IAnim } from "../components/App/App";
+import { Anim } from "../components/App/App";
 import { swap } from "../utils/swap";
 
 const merge = (
@@ -6,7 +6,7 @@ const merge = (
   left: number,
   mid: number,
   right: number,
-  animations: IAnim[]
+  animations: Anim[]
 ) => {
   let res = [];
   let [i, j] = [left, mid + 1];
@@ -40,7 +40,7 @@ const mSort = (
   array: number[],
   left: number,
   right: number,
-  animations: IAnim[]
+  animations: Anim[]
 ) => {
   if (left >= right) return;
 
@@ -51,9 +51,9 @@ const mSort = (
   merge(array, left, mid, right, animations);
 };
 
-export const mergeSort = (arrayInput: number[]): IAnim[] => {
+export const mergeSort = (arrayInput: number[]): Anim[] => {
   const array = [...arrayInput];
-  const animations: IAnim[] = [];
+  const animations: Anim[] = [];
 
   mSort(array, 0, array.length - 1, animations);
 

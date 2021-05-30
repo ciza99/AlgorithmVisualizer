@@ -1,9 +1,9 @@
-import { IAnim } from "../components/App/App";
+import { Anim } from "../components/App/App";
 import { swap } from "../utils/swap";
 
-export const insertionSort = (arrayInput: number[]): IAnim[] => {
+export const insertionSort = (arrayInput: number[]): Anim[] => {
   const array = [...arrayInput];
-  const animations: IAnim[] = [];
+  const animations: Anim[] = [];
   let i, key, j;
   for (i = 1; i < array.length; i++) {
     key = array[i];

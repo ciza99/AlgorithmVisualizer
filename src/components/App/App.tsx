@@ -16,7 +16,7 @@ import { insertionSort } from "../../algorithms/insertionSort";
 import { mergeSort } from "../../algorithms/mergeSort";
 import { quickSort } from "../../algorithms/quickSort";
 
-export interface IAnim {
+export interface Anim {
   first: number;
   second: number;
   isSwap: boolean;
@@ -42,7 +42,7 @@ const App: FC = () => {
     setArray(randomArray(arraySize));
   }, [arraySize]);
 
-  const loop = (animations: IAnim[], index: number) => {
+  const loop = (animations: Anim[], index: number) => {
     if (index >= animations.length) {
       setSelected([]);
       setIsRunning(false);

@@ -1,7 +1,7 @@
 import React, { FC, useMemo } from "react";
 import "./ArrayItem.css";
 
-interface IProps {
+interface Props {
   value: number;
   height: number;
   isSelected: boolean;
@@ -9,13 +9,7 @@ interface IProps {
   margin: number;
 }
 
-const ArrayItem: FC<IProps> = ({
-  value,
-  isSelected,
-  height,
-  width,
-  margin,
-}) => {
+const ArrayItem: FC<Props> = ({ value, isSelected, height, width, margin }) => {
   const className = isSelected ? "array-item--selected" : "";
   const textSize = useMemo(() => {
     const size = Math.min(width * 0.75, 35);

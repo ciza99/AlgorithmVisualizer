@@ -3,7 +3,7 @@ import "./ArrayContainer.css";
 
 import ArrayItem from "../ArrayItem";
 
-interface IProps {
+interface Props {
   array: number[];
   selected: number[];
 }
@@ -15,7 +15,7 @@ const computeSizes = (arrayLength: number) => {
   return { width, margin };
 };
 
-const ArrayContainer: FC<IProps> = ({ array, selected }) => {
+const ArrayContainer: FC<Props> = ({ array, selected }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [sizes, setSizes] = useState(() => computeSizes(array.length));
 

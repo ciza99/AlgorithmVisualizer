@@ -1,11 +1,11 @@
-import { IAnim } from "../components/App/App";
+import { Anim } from "../components/App/App";
 import { swap } from "../utils/swap";
 
 const partition = (
   array: number[],
   low: number,
   high: number,
-  animations: IAnim[]
+  animations: Anim[]
 ) => {
   const pivot = array[low];
   let [i, j] = [low, high];
@@ -35,7 +35,7 @@ const qSort = (
   array: number[],
   low: number,
   high: number,
-  animations: IAnim[]
+  animations: Anim[]
 ) => {
   if (low >= high) {
     return;
@@ -45,9 +45,9 @@ const qSort = (
   qSort(array, j + 1, high, animations);
 };
 
-export const quickSort = (arrayInput: number[]): IAnim[] => {
+export const quickSort = (arrayInput: number[]): Anim[] => {
   const array = [...arrayInput];
-  const animations: IAnim[] = [];
+  const animations: Anim[] = [];
   qSort(array, 0, array.length - 1, animations);
   return animations;
 };

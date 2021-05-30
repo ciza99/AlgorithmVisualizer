@@ -1,9 +1,9 @@
-import { IAnim } from "../components/App/App";
+import { Anim } from "../components/App/App";
 import { swap } from "../utils/swap";
 
-export const bubbleSort = (arrayInput: number[]): IAnim[] => {
+export const bubbleSort = (arrayInput: number[]): Anim[] => {
   const array = [...arrayInput];
-  const animations: IAnim[] = [];
+  const animations: Anim[] = [];
   let to = array.length;
   while (true) {
     let swapped = false;

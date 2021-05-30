@@ -7,7 +7,7 @@ import Select from "@material-ui/core/Select";
 import { MenuItem } from "@material-ui/core";
 import Sliders, { SliderChange } from "../Sliders";
 
-interface IProps {
+interface Props {
   isRunning: boolean;
   handleStart: React.MouseEventHandler<HTMLButtonElement>;
   algorithm: Algorithm;
@@ -16,7 +16,7 @@ interface IProps {
   handleSpeedChange: SliderChange;
 }
 
-const Header: FC<IProps> = ({
+const Header: FC<Props> = ({
   isRunning,
   handleStart,
   algorithm,
