@@ -1,0 +1,40 @@
+.array-item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0 0.5rem;
+  width: 100%;
+  background-color: var(--clr-block);
+  transition: background-color 150ms ease-in;
+  transition: height 100ms ease-in;
+  border-radius: 2px 2px 0 0;
+}
+
+.array-item--selected {
+  background-color: var(--clr-selected);
+}
+
+.array-item__text {
+  visibility: hidden;
+  position: absolute;
+  color: white;
+  margin-top: 1rem;
+  font-weight: 700;
+  bottom: -1.5rem;
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .array-item__text {
+    visibility: visible;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .array-item__text {
+    bottom: -2rem;
+    font-size: 1.5rem;
+  }
+}
