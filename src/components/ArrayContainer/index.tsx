@@ -6,6 +6,7 @@ import ArrayItem from "../ArrayItem";
 interface Props {
   array: number[];
   selected: number[];
+  speed: number;
 }
 
 const computeSizes = (arrayLength: number) => {
@@ -15,7 +16,7 @@ const computeSizes = (arrayLength: number) => {
   return { width, margin };
 };
 
-const ArrayContainer: FC<Props> = ({ array, selected }) => {
+const ArrayContainer: FC<Props> = ({ array, selected, speed }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [sizes, setSizes] = useState(() => computeSizes(array.length));
 
@@ -35,6 +36,7 @@ const ArrayContainer: FC<Props> = ({ array, selected }) => {
     <div className="array-container">
       {array.map((value, index) => (
         <ArrayItem
+          speed={speed}
           height={(100 / array.length) * value}
           width={sizes.width}
           margin={sizes.margin}

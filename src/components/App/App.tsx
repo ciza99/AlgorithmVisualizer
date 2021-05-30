@@ -116,7 +116,7 @@ const App: FC = () => {
         handleSizeChange={handleSizeChange}
         handleSpeedChange={handleSpeedChange}
       />
-      <ArrayContainer array={array} selected={selected} />
+      <ArrayContainer array={array} selected={selected} speed={speed} />
     </div>
   );
 };

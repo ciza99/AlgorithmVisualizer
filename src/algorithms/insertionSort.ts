@@ -1,5 +1,4 @@
 import { Anim } from "../components/App/App";
-import { swap } from "../utils/swap";
 
 export const insertionSort = (arrayInput: number[]): Anim[] => {
   const array = [...arrayInput];

@@ -1,5 +1,4 @@
 import { Anim } from "../components/App/App";
-import { swap } from "../utils/swap";
 
 const merge = (
   array: number[],

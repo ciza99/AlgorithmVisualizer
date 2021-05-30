@@ -1,11 +1,14 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import "./Header.css";
 import { Algorithm } from "../App/App";
 
 import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
-import { MenuItem } from "@material-ui/core";
+import { Divider, IconButton, MenuItem } from "@material-ui/core";
 import Sliders, { SliderChange } from "../Sliders";
+import EqualizerIcon from "@material-ui/icons/Equalizer";
+import MenuIcon from "@material-ui/icons/Menu";
+import CloseIcon from "@material-ui/icons/Close";
 
 interface Props {
   isRunning: boolean;
@@ -24,19 +27,33 @@ const Header: FC<Props> = ({
   handleSizeChange,
   handleSpeedChange,
 }) => {
+  const [open, setOpen] = useState(false);
+
   const handleAlgoChange = (e: React.ChangeEvent<any>) => {
     setAlgorithm(e.target.value);
   };
 
+  const openMenu = () => setOpen(true);
+  const closeMenu = () => setOpen(false);
+
   return (
     <header className="header">
       <div className="header__logo-container">
-        <h1>
+        <EqualizerIcon className="header__algo-icon" />
+        <h1 className="header__title">
           Algorithm
           <br /> Visualizer
         </h1>
       </div>
-      <form className="header__actions">
+      <form
+        className={`header__actions ${open ? "header__actions--visible" : ""}`}
+      >
+        <div className="header__menu-heading">
+          <span className="header__menu-title">Menu</span>
+          <IconButton onClick={closeMenu} className="header__menu-button">
+            <CloseIcon />
+          </IconButton>
+        </div>
         <Select
           value={algorithm}
           onChange={handleAlgoChange}
@@ -56,10 +73,18 @@ const Header: FC<Props> = ({
           handleSpeedChange={handleSpeedChange}
         />
 
-        <Button variant="outlined" onClick={handleStart} disabled={isRunning}>
+        <Button
+          variant="outlined"
+          onClick={handleStart}
+          disabled={isRunning}
+          className="header__start-button"
+        >
           Start
         </Button>
       </form>
+      <IconButton onClick={openMenu} className="header__menu-button">
+        <MenuIcon fontSize="large" />
+      </IconButton>
     </header>
   );
 };

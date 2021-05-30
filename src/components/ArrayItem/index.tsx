@@ -7,9 +7,17 @@ interface Props {
   isSelected: boolean;
   width: number;
   margin: number;
+  speed: number;
 }
 
-const ArrayItem: FC<Props> = ({ value, isSelected, height, width, margin }) => {
+const ArrayItem: FC<Props> = ({
+  value,
+  isSelected,
+  height,
+  width,
+  margin,
+  speed,
+}) => {
   const className = isSelected ? "array-item--selected" : "";
   const textSize = useMemo(() => {
     const size = Math.min(width * 0.75, 35);
@@ -19,7 +27,12 @@ const ArrayItem: FC<Props> = ({ value, isSelected, height, width, margin }) => {
   return (
     <div
       className={`array-item ${className}`}
-      style={{ width, margin: `0 ${margin / 2}px`, height: `${height}%` }}
+      style={{
+        width,
+        margin: `0 ${margin / 2}px`,
+        height: `${height}%`,
+        transitionDuration: `${speed}ms`,
+      }}
     >
       <span
         className="array-item__text"

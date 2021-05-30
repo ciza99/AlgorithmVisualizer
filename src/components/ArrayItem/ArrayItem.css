@@ -16,6 +16,10 @@
   background-color: var(--clr-selected);
 }
 
+.array-item:nth-child(2n) > .array-item__text {
+  text-decoration: underline;
+}
+
 .array-item__text {
   visibility: hidden;
   position: absolute;
