@@ -8,6 +8,7 @@ import ArrayContainer from "../ArrayContainer";
 /** UTILITIES */
 import { swap } from "../../utils/swap";
 import { randomArray } from "../../utils/generate";
+import { calculateSpeed } from "../../utils/calculateSpeed";
 
 /** ALGORITHMS */
 import { bubbleSort } from "../../algorithms/bubbleSort";
@@ -36,7 +37,7 @@ const App: FC = () => {
   const [arraySize, setArraySize] = useState(INITIAL_ARRAY_SIZE);
   const [array, setArray] = useState(randomArray(arraySize));
   const [selected, setSelected] = useState<number[]>([]);
-  const [speed, setSpeed] = useState(INITIAL_SPEED);
+  const [speed, setSpeed] = useState(calculateSpeed(INITIAL_SPEED));
   const [algorithm, setAlgorithm] = useState<Algorithm>("bubble");
   const nextIterationTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -114,9 +115,7 @@ const App: FC = () => {
     event: React.ChangeEvent<{}>,
     value: number | number[]
   ) => {
-    const inverted = 101 - (value as number);
-    const speed = inverted * 5;
-    setSpeed(speed);
+    setSpeed(calculateSpeed(value as number));
   };
 
   const handleShuffle = () => {
