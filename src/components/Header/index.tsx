@@ -14,6 +14,7 @@ interface Props {
   isRunning: boolean;
   handleStart: React.MouseEventHandler<HTMLButtonElement>;
   handleStop: React.MouseEventHandler<HTMLButtonElement>;
+  handleShuffle: React.MouseEventHandler<HTMLButtonElement>;
   algorithm: Algorithm;
   setAlgorithm: React.Dispatch<React.SetStateAction<Algorithm>>;
   handleSizeChange: SliderChange;
@@ -24,6 +25,7 @@ const Header: FC<Props> = ({
   isRunning,
   handleStart,
   handleStop,
+  handleShuffle,
   algorithm,
   setAlgorithm,
   handleSizeChange,
@@ -77,8 +79,17 @@ const Header: FC<Props> = ({
 
         <Button
           variant="outlined"
+          onClick={handleShuffle}
+          className="header__button"
+          disabled={isRunning}
+        >
+          Shuffle
+        </Button>
+
+        <Button
+          variant="outlined"
           onClick={isRunning ? handleStop : handleStart}
-          className="header__start-button"
+          className="header__button"
         >
           {isRunning ? "Stop" : "Start"}
         </Button>

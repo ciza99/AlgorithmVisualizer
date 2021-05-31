@@ -51,6 +51,10 @@
   row-gap: 1rem;
   padding: 2rem;
   z-index: 3;
+}
+
+.header__actions,
+.header__menu-button {
   animation: fadeIn 250ms ease;
 }
 
@@ -84,12 +88,12 @@
   width: 100%;
 }
 
-.header__start-button {
+.header__button {
   width: 100%;
 }
 
-@media only screen and (min-width: 950px) {
-  .header__start-button {
+@media only screen and (min-width: 1050px) {
+  .header__button {
     width: auto;
   }
 

@@ -15,6 +15,7 @@ import { selectionSort } from "../../algorithms/selectionSorts";
 import { insertionSort } from "../../algorithms/insertionSort";
 import { mergeSort } from "../../algorithms/mergeSort";
 import { quickSort } from "../../algorithms/quickSort";
+import { INITIAL_ARRAY_SIZE, INITIAL_SPEED } from "../../constants";
 
 export interface Anim {
   first: number;
@@ -32,10 +33,10 @@ export type Algorithm =
 
 const App: FC = () => {
   const [isRunning, setIsRunning] = useState(false);
-  const [arraySize, setArraySize] = useState(25);
+  const [arraySize, setArraySize] = useState(INITIAL_ARRAY_SIZE);
   const [array, setArray] = useState(randomArray(arraySize));
   const [selected, setSelected] = useState<number[]>([]);
-  const [speed, setSpeed] = useState(50);
+  const [speed, setSpeed] = useState(INITIAL_SPEED);
   const [algorithm, setAlgorithm] = useState<Algorithm>("bubble");
   const nextIterationTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -118,12 +119,17 @@ const App: FC = () => {
     setSpeed(speed);
   };
 
+  const handleShuffle = () => {
+    setArray(randomArray(arraySize));
+  };
+
   return (
     <div className="app">
       <Header
         isRunning={isRunning}
         handleStart={handleStart}
         handleStop={handleStop}
+        handleShuffle={handleShuffle}
         algorithm={algorithm}
         setAlgorithm={setAlgorithm}
         handleSizeChange={handleSizeChange}

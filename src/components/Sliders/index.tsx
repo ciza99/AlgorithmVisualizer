@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import "./Sliders.css";
 
 import { Slider } from "@material-ui/core";
+import { INITIAL_ARRAY_SIZE, INITIAL_SPEED } from "../../constants";
 
 export type SliderChange =
   | ((event: React.ChangeEvent<{}>, value: number | number[]) => void)
@@ -25,7 +26,7 @@ const Sliders: FC<Props> = ({
         <div className="sliders__wrapper">
           <Slider
             disabled={isRunning}
-            defaultValue={50}
+            defaultValue={INITIAL_SPEED}
             step={1}
             min={1}
             max={100}
@@ -40,7 +41,7 @@ const Sliders: FC<Props> = ({
         <div className="sliders__wrapper">
           <Slider
             disabled={isRunning}
-            defaultValue={25}
+            defaultValue={INITIAL_ARRAY_SIZE}
             step={1}
             min={1}
             max={100}
