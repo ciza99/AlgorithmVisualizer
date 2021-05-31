@@ -102,8 +102,6 @@ const App: FC = () => {
     }
   };
 
-  useEffect(() => {}, [isRunning]);
-
   const handleSizeChange = (
     event: React.ChangeEvent<{}>,
     value: number | number[]
