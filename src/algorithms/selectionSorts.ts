@@ -1,6 +1,11 @@
-import { Anim } from "../components/App/App";
+import { Anim } from "../components/App";
 import { swap } from "../utils/swap";
 
+/**
+ * Selection sort algorithm
+ * @param arrayInput array to sort
+ * @returns animations that define the steps of the algorithm
+ */
 export const selectionSort = (inputArray: number[]) => {
   const array = [...inputArray];
   const animations: Anim[] = [];

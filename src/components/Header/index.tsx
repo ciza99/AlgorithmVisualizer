@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import "./Header.css";
-import { Algorithm } from "../App/App";
+import { Algorithm } from "../App";
 
 import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
@@ -21,6 +21,18 @@ interface Props {
   handleSpeedChange: SliderChange;
 }
 
+/**
+ * Header component for the app
+ * @param props
+ * @param props.isRunning disables the inputs
+ * @param props.handleStart function called when pressing the start button (when isRunning is false)
+ * @param props.handleStop function called when pressing the stop button (when isRunning is true)
+ * @param props.handleShuffle function called when pressing the shuffle button
+ * @param props.algorithm currently selected algorithm
+ * @param props.setAlgorithm function to set the selected algorithm
+ * @param props.handleSizeChange function called when size slider changes
+ * @param props.handleSpeedChange function called when speed slider changes
+ */
 const Header: FC<Props> = ({
   isRunning,
   handleStart,

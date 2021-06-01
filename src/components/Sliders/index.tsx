@@ -14,6 +14,13 @@ interface Props {
   handleSizeChange: SliderChange;
 }
 
+/**
+ * Component rendering the sliders for speed and size
+ * @param props
+ * @param props.isRunning disables the sliders if true
+ * @param props.handleSpeedChange function to call when speed slider value changes
+ * @param props.handleSizeChange function to call when size slider value changes
+ */
 const Sliders: FC<Props> = ({
   isRunning,
   handleSpeedChange,

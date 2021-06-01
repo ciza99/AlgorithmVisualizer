@@ -1,5 +1,13 @@
-import { Anim } from "../components/App/App";
+import { Anim } from "../components/App";
 
+/**
+ * Merging part of the merge sort alogorithm
+ * @param array array that is being sorted
+ * @param left lower bound
+ * @param mid middle index
+ * @param right upper bound
+ * @param animations animations that are being constructed
+ */
 const merge = (
   array: number[],
   left: number,
@@ -35,6 +43,14 @@ const merge = (
   }
 };
 
+/**
+ * Helper function for merge sort that is called recursively
+ * @param array array that is being sorted
+ * @param left lower bound
+ * @param right upper bound
+ * @param animations animations that are being constructed
+ * @returns void
+ */
 const mSort = (
   array: number[],
   left: number,
@@ -50,6 +66,11 @@ const mSort = (
   merge(array, left, mid, right, animations);
 };
 
+/**
+ * Merge sort algorithm
+ * @param arrayInput array to sort
+ * @returns animations that define the steps of the algorithm
+ */
 export const mergeSort = (arrayInput: number[]): Anim[] => {
   const array = [...arrayInput];
   const animations: Anim[] = [];

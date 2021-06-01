@@ -32,6 +32,7 @@ export type Algorithm =
   | "merge"
   | "quick";
 
+/** Main App component */
 const App: FC = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [arraySize, setArraySize] = useState(INITIAL_ARRAY_SIZE);
@@ -45,6 +46,12 @@ const App: FC = () => {
     setArray(randomArray(arraySize));
   }, [arraySize]);
 
+  /**
+   * Loops through the animations and handles the visualization
+   * @param animations animations to visualize
+   * @param index index of the current animation to perform
+   * @returns void
+   */
   const loop = (animations: Anim[], index: number) => {
     if (index >= animations.length) {
       setSelected([]);
@@ -54,8 +61,10 @@ const App: FC = () => {
 
     const { isSwap, first, second, override } = animations[index];
 
+    /** Mark the selected elements */
     setSelected([first, second]);
 
+    /** Swap the values */
     if (isSwap) {
       setArray((array) => {
         const newArray = [...array];
@@ -64,6 +73,7 @@ const App: FC = () => {
       });
     }
 
+    /** Override a value */
     if (override) {
       setArray((array) => {
         const newArray = [...array];
@@ -73,12 +83,14 @@ const App: FC = () => {
       });
     }
 
+    /** Perform the next iteration after a delay */
     nextIterationTimeout.current = setTimeout(
       () => loop(animations, index + 1),
       speed
     );
   };
 
+  /** Runs the animations with the selected algorithm */
   const handleStart = () => {
     setIsRunning(true);
     const animations =
@@ -94,7 +106,9 @@ const App: FC = () => {
     loop(animations, 0);
   };
 
+  /** Stops the visualization */
   const handleStop = () => {
+    /** Dont perform the next loop */
     if (nextIterationTimeout.current) {
       clearTimeout(nextIterationTimeout.current);
       setIsRunning(false);
@@ -102,6 +116,7 @@ const App: FC = () => {
     }
   };
 
+  /** Changes the selected size */
   const handleSizeChange = (
     event: React.ChangeEvent<{}>,
     value: number | number[]
@@ -109,6 +124,7 @@ const App: FC = () => {
     setArraySize(value as number);
   };
 
+  /** Changes the selected speed */
   const handleSpeedChange = (
     event: React.ChangeEvent<{}>,
     value: number | number[]
@@ -116,6 +132,7 @@ const App: FC = () => {
     setSpeed(calculateSpeed(value as number));
   };
 
+  /** Shuffles the array */
   const handleShuffle = () => {
     setArray(randomArray(arraySize));
   };

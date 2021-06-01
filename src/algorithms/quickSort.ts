@@ -1,6 +1,14 @@
-import { Anim } from "../components/App/App";
+import { Anim } from "../components/App";
 import { swap } from "../utils/swap";
 
+/**
+ * Partitioning part of the quick sort algorithm
+ * @param array array that is being sorted
+ * @param low lower bound
+ * @param high upper bound
+ * @param animations animations that are being constucted
+ * @returns index where the partitioning ended
+ */
 const partition = (
   array: number[],
   low: number,
@@ -31,6 +39,14 @@ const partition = (
   return j;
 };
 
+/**
+ * Helper function for quick sort to call recursively
+ * @param array array that is being sorted
+ * @param low lower bound
+ * @param high upper bound
+ * @param animations animations that are being constructed
+ * @returns void
+ */
 const qSort = (
   array: number[],
   low: number,
@@ -45,6 +61,11 @@ const qSort = (
   qSort(array, j + 1, high, animations);
 };
 
+/**
+ * Quick sort algorithm
+ * @param arrayInput array to sort
+ * @returns animations that define the steps of the algorithm
+ */
 export const quickSort = (arrayInput: number[]): Anim[] => {
   const array = [...arrayInput];
   const animations: Anim[] = [];

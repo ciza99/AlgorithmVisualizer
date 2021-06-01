@@ -11,6 +11,17 @@ interface Props {
   textSize: number;
 }
 
+/**
+ * Component to render an array item
+ * @param props
+ * @param props.value value of the item
+ * @param props.isSelected marks the item as selected
+ * @param props.height height of the item
+ * @param props.width width of the item
+ * @param props.margin total margin on both sides of the item
+ * @param props.speed speed used for the transitions
+ * @param props.textSize size of the text under the array item
+ */
 const ArrayItem: FC<Props> = ({
   value,
   isSelected,

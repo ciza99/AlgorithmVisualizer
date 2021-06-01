@@ -9,6 +9,11 @@ interface Props {
   speed: number;
 }
 
+/**
+ * Computes the sizes of the array items based on the window width
+ * @param arrayLength length of the array
+ * @returns width and margin of the array items
+ */
 const computeSizes = (arrayLength: number) => {
   const fullSize = Math.max((window.innerWidth - 50) / arrayLength, 3);
   const width = fullSize * 0.75;
@@ -16,6 +21,13 @@ const computeSizes = (arrayLength: number) => {
   return { width, margin };
 };
 
+/**
+ * Component that encapsulates the array items
+ * @param props
+ * @param props.array current array to render
+ * @param props.selected array of the indexes of selected elements
+ * @param props.speed speed used for the transitions
+ */
 const ArrayContainer: FC<Props> = ({ array, selected, speed }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [sizes, setSizes] = useState(() => computeSizes(array.length));
@@ -32,6 +44,7 @@ const ArrayContainer: FC<Props> = ({ array, selected, speed }) => {
     updateWidth();
   }, [width, updateWidth]);
 
+  /** Recalculate the text size whenever the width changes */
   const textSize = useMemo(() => {
     const size = Math.min(sizes.width * 0.75, 35);
     console.log(size);
