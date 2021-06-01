@@ -1,5 +1,10 @@
-import { Anim } from "../components/App/App";
+import { Anim } from "../components/App";
 
+/**
+ * Insertion sort algorithm
+ * @param arrayInput array to sort
+ * @returns animations that define the steps of the algorithm
+ */
 export const insertionSort = (arrayInput: number[]): Anim[] => {
   const array = [...arrayInput];
   const animations: Anim[] = [];

@@ -1,6 +1,11 @@
-import { Anim } from "../components/App/App";
+import { Anim } from "../components/App";
 import { swap } from "../utils/swap";
 
+/**
+ * Bubble sort algorithm
+ * @param arrayInput array to sort
+ * @returns animations that define the steps of the algorithm
+ */
 export const bubbleSort = (arrayInput: number[]): Anim[] => {
   const array = [...arrayInput];
   const animations: Anim[] = [];
